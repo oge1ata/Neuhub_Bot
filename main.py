@@ -5,8 +5,8 @@ from bot import fetch_headlines, generate_message, send_messages
 app = FastAPI()
 
 # A simple secret token so random people can't trigger your bot
-CRON_SECRET = os.environ.get("CRON_SECRET", "changeme")
-NEUHUB_WA_LINK = os.environ.get("NEUHUB_WA_LINK", "https://chat.whatsapp.com/YOURLINK")
+CRON_SECRET = os.environ.get("CRON_SECRET", "neuhubisbig")
+NEUHUB_WA_LINK = os.environ.get("NEUHUB_WA_LINK", "https://chat.whatsapp.com/JSnLNiaYunWFqJGexffP1f?mode=gi_t")
 
 @app.get("/")
 def root():
