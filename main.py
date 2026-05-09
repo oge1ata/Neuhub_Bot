@@ -21,4 +21,4 @@ def send_daily(x_cron_secret: str = Header(None)):
     message   = generate_message(headlines, NEUHUB_WA_LINK)
     send_messages(message)
 
-    return {"status": "sent", "preview": message[:200]}
+    return {"status": "sent", "message": message}

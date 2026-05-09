@@ -22,7 +22,8 @@ NEUHUB_WA_LINK      = os.environ.get("NEUHUB_WA_LINK", "https://chat.whatsapp.co
 # Add each member's number here in the format: whatsapp:+447XXXXXXXXX
 RECIPIENT_NUMBERS = [
     "whatsapp:+2348174745209",   # replace with real opted-in numbers
-    # "whatsapp:+447YYYYYYYYY",
+    "whatsapp:+447398770615",
+    "whatsapp:+447350153364"
 ]
 
 # ─────────────────────────────────────────────
