@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Header, HTTPException
+from fastapi import FastAPI, Header, HTTPException, Response
 import os
 from bot import fetch_headlines, generate_message, send_messages
 
@@ -10,11 +10,11 @@ NEUHUB_WA_LINK = os.environ.get("NEUHUB_WA_LINK", "https://chat.whatsapp.com/JSn
 
 @app.get("/ping")
 def ping():
-    return "ok"
+    return Response(content="ok", media_type="text/plain")
 
 @app.get("/")
 def root():
-    return {"status": "Neuhub bot is running"}
+    return Response(content="ok", media_type="text/plain")
 
 @app.post("/send-daily")
 def send_daily(x_cron_secret: str = Header(None)):
@@ -23,5 +23,5 @@ def send_daily(x_cron_secret: str = Header(None)):
     headlines = fetch_headlines()
     message = generate_message(headlines, NEUHUB_WA_LINK)
     send_messages(message)
-    return {"status": "sent"}
+    return Response(content="ok", media_type="text/plain")
 
