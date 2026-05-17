@@ -62,27 +62,28 @@ def generate_message(headlines_text, wa_link):
     today = date.today().strftime("%A, %d %B %Y")
 
     prompt = f"""
-You are the voice of Neuhub — a tech community for young Nigerians and people of African heritage building careers in tech, especially in the UK.
+You are the voice of Neuhub — a tech community for young Nigerians and people of African heritage building careers in tech, especially in the UK and Nigeria.
 
 Today is {today}. Here are today's top tech and economy headlines:
 
 {headlines_text}
 
-Write a daily WhatsApp message for the Neuhub community. The tone should be warm, direct, and conversational — like a knowledgeable friend, not a news anchor. Write in plain text only, no markdown, no asterisks, no bullet symbols — WhatsApp will handle formatting.
+Write a daily WhatsApp message for the Neuhub community. The tone should be warm, direct, and conversational — like a knowledgeable friend, not a news anchor. 
+Write in plain text only, no markdown, no asterisks, no bullet symbols — WhatsApp will handle formatting.
 
 Structure it like this:
 1. A short punchy opener for the day (1 sentence)
-2. Pick the 2-3 most relevant stories. For each: a one-line headline summary, then 2-3 sentences explaining why it matters — especially for young people in tech or anyone watching the economy.
-3. A discussion question to spark conversation in the group (make it genuinely interesting, not generic)
+2. Pick the 2-3 most relevant stories. For each: a one-line headline summary, then 2-3 sentences explaining why it matters, maybe for young people in tech or anyone watching the economy.
+3. A discussion question to spark conversation in the group (make it genuinely interesting, not generic), this is optional, you could add anything else you think would be good to end with.
 4. A short warm closing line inviting people to share the community link with someone who'd find this useful: {wa_link}
 
-Keep the whole message under 300 words. Do not use emojis excessively — one or two max, used naturally.
+Keep the whole message under 200 words. Do not use emojis excessively — one or two max, used naturally.
 """
 
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=600,
+        max_tokens=400,
         temperature=0.75,
     )
 
